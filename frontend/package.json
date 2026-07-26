@@ -6,9 +6,10 @@
     "copy-bb": "node scripts/copy-bb.mjs",
     "predev": "node scripts/copy-bb.mjs",
     "prebuild": "node scripts/copy-bb.mjs",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "postinstall": "pnpm --dir packages/issuer build",
+    "dev": "node api.js && next dev",
+    "build": "node api.js && next build",
+    "start": "node api.js && next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
     "@noble/hashes": "^2.2.0",
     "@noir-lang/noir_js": "1.0.0-beta.9",
     "@stellar/stellar-sdk": "^13.1.0",
+    "@stellarcred/issuer": "workspace:*",
     "@tabler/icons-react": "^3.21.0",
     "blakejs": "^1.2.1",
     "buffer": "^6.0.3",
